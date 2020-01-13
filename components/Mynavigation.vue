@@ -9,7 +9,7 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item>
-            <nuxt-link to="articles/">articles</nuxt-link>
+            <nuxt-link to="/articles/">articles</nuxt-link>
           </b-nav-item>
           <b-nav-item href="#">formulaire</b-nav-item>
         </b-navbar-nav>
