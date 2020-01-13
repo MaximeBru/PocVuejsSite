@@ -1,0 +1,30 @@
+const state = () => ({
+    count: 0,
+    list: [],
+    article: [],
+    articles: [],
+    page_nb: 0,
+    page_prev: 0,
+    page_next: 0,
+    marker_pos: [],
+    initial: []
+})
+
+const mutations = {
+    set(state, e) {
+        state.count = e.target.value
+    },
+
+    article(state, data) {
+        state.article = data
+    },
+
+    articles: (state, articles) => {
+        state.articles = articles
+    },
+    get_imageUrl(state, data) {
+        state.article.image.url = data
+    }
+}
+
+export { state, mutations }

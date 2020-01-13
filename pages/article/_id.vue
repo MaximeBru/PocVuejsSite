@@ -52,9 +52,7 @@ export default {
       imageUrl: (state) => state.article.articleImg.Url
     })
   },
-  methods: {
-    ...mapMutations(['get_article', 'get_imageUrl'])
-  },
+
   head() {
     return {
       // title: this.article.metaTitle,
@@ -70,6 +68,10 @@ export default {
 }
 </script>
 <style scoped>
+p {
+  font-size: 2rem;
+  font-family: roboto;
+}
 .InterwiewColor {
   background-color: #f5f4f0;
 }

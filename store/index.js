@@ -1,41 +1,28 @@
-const state = () => ({
-  count: 0,
-  list: [],
-  article: [],
-  articles: [],
-  page_nb: 0,
-  page_prev: 0,
-  page_next: 0,
-  marker_pos: [],
-  initial: []
+import Vue from 'vue'
+import Vuex from 'vuex'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(Vuex)
+Vue.use(VueAxios, axios)
+
+
+export const state = () => ({
+    counter: 0,
+    articles: []
 })
-
-const mutations = {
-  initial(state, articles) {
-    state.articles = articles
-  },
-  set(state, e) {
-    state.count = e.target.value
-  },
-  increment(state) {
-    state.count++
-  },
-  reset(state) {
-    state.count = 0
-  },
-  article(state, data) {
-    state.article = data
-  },
-
-  articles: (state, articles) => {
-    state.articles = articles
-  },
-  setCurrentarticle: (state, article) => {
-    state.article = article
-  },
-  get_imageUrl(state, data) {
-    state.article.image.url = data
-  }
+export const actions = {
+    GET_ARTICLES({ commit }) {
+        axios
+            .get('http://localhost:1337/articles')
+            .then((r) => r.data)
+            .then((articles) => {
+                commit('SET_ARTICLES', articles)
+            })
+    }
 }
 
-export { state, mutations }
+export const mutations = {
+    SET_ARTICLES(state, articles) {
+        state.articles = articles
+    }
+}
