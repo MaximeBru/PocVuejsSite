@@ -8,11 +8,12 @@
         <figure v-for="article in articles" :key="article.id" class="snip1208">
           <img
             :src="'http://localhost:1337' + article.articleImg.url"
-            alt="sample66"/>
+            alt="sample66"
+          />
           <div class="date">
-            <span class="day">{{ $moment(article.date).format('DD') }}</span>
+            <span class="day">{{ $moment(article.created_at).format('DD') }}</span>
             <span class="month">
-              {{ $moment(article.date).format('MMM') }}
+              {{ $moment(article.created_at).format('MMM') }}
             </span>
           </div>
           <figcaption>
@@ -36,19 +37,17 @@ import { mapState } from 'vuex'
 //import * as moment from 'moment'
 export default {
   components: {},
-    mounted () {
+  mounted() {
     this.$store.dispatch('GET_ARTICLES')
   },
-  computed: mapState([
-    'articles'
-  ]),
+  computed: mapState(['articles']),
   head: {
     /*     title: this.title, */
     meta: [
       {
         hid: 'description',
         name: 'description',
-        content: 'Ma description personnalisée'
+        content: 'Page des articles'
       }
     ]
   }

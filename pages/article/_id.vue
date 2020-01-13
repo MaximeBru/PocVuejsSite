@@ -8,12 +8,11 @@
               'background-image':
                 'url(http://localhost:1337' + article.articleImg.url + ')'
             }"
-            class="hero-holder"
-          >
+            class="hero-holder">
             <div class="hero-footer">
               <h6>
-                {{ $moment(article.date).format('DD') }}
-                {{ $moment(article.date).format('MMMM') }}
+                {{ $moment(article.created_at).format('DD') }}
+                {{ $moment(article.created_at).format('MMMM') }}
               </h6>
               <h1>{{ article.Titre }}</h1>
             </div>
@@ -28,7 +27,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState } from 'vuex'
 import axios from 'axios'
 import VueMoment from 'vue-moment'
 import * as moment from 'moment'
@@ -55,13 +54,14 @@ export default {
 
   head() {
     return {
-      // title: this.article.metaTitle,
+      title: this.article.Titre,
       meta: [
         {
           hid: 'description',
-          name: 'description'
-          // content: '' + this.article.metaDescription + ''
+          name: 'description',
+          content: this.article.contenu.slice(0, 90)
         }
+        // content: '' + this.article.metaDescription + ''
       ]
     }
   }

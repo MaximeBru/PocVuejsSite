@@ -14,8 +14,8 @@
           <img :src="'http://localhost:1337' + article.articleImg.url"
             alt="sample66"/>
           <div class="date">
-            <span class="day">{{ $moment(article.date).format('DD') }}</span>
-            <span class="month">{{ $moment(article.date).format('MMM') }}</span>
+            <span class="day">{{ $moment(article.created_at).format('DD') }}</span>
+            <span class="month">{{ $moment(article.created_at).format('MMM') }}</span>
           </div>
           <figcaption>
             <h3>{{ article.Titre }}</h3>
